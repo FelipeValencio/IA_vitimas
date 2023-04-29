@@ -1,12 +1,11 @@
 from sklearn.tree import DecisionTreeClassifier
-from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import numpy as np
 
 
 def loadDataSet():
     # Open the text file and read the dataSet
-    with open('treino_sinais_vitais_sem_label.txt', 'r') as file:
+    with open('treino_sinais_vitais_com_label.txt', 'r') as file:
         dataSet = file.readlines()
 
     # Remove any leading or trailing white space and split the dataSet by commas
@@ -17,17 +16,16 @@ def loadDataSet():
 
     # Exclui a coluna index
     dataSet = np.delete(dataSet, 0, 1)
+    # Exclui a coluna gravidade
+    dataSet = np.delete(dataSet, 5, 1)
 
     # Extract the features (X) and target variable (y)
-    X = dataSet[:, :-1]
-    y = dataSet[:, -1]
+    targets = dataSet[:, -1]
 
     # Print the shape of the dataSet
     print('Data shape:', dataSet.shape)
-    print('Features shape:', X.shape)
-    print('Target shape:', y.shape)
 
-    return dataSet, y
+    return dataSet, targets
 
 
 # Load dataset
