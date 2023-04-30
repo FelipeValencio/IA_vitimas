@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 
 MAX_DEPTH = 10
 TEST_SIZE = 0.3
@@ -47,6 +47,8 @@ accuracy = model.score(data_test, target_test)
 
 # Print accuracy score
 print("Accuracy:", accuracy)
+
+print(classification_report(target_test, y_pred, ))
 
 # Salvar resultado para futura comparacao
 file_object = open('results/resultsRFClass.txt', 'a')
