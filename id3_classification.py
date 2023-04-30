@@ -1,50 +1,25 @@
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
-import numpy as np
 import pandas as pd
 
+TEST_SIZE = 0.3
+
+
 def loadData():
-    data = pd.read_csv('treino_sinais_vitais_com_label.txt',sep=',', header=None)
-    
-    data.columns = ["index","pSist", "pDiast", "qPA", "pulso", "respiração", "gravidade", "classificação"]
-    
-    data.drop(columns=['index','pSist','pDiast'], inplace=True)
-    
-    explicadores = data[['qPA','pulso','respiração']]
-    
+    data = pd.read_csv('treino_sinais_vitais_com_label.txt', sep=',', header=None)
+
+    data.columns = ["index", "pSist", "pDiast", "qPA", "pulso", "respiração", "gravidade", "classificação"]
+
+    data.drop(columns=['index', 'pSist', 'pDiast'], inplace=True)
+
+    explicadores = data[['qPA', 'pulso', 'respiração']]
+
     target = data[['classificação']]
-    
+
     print('Data shape:', data.shape)
 
     return explicadores, target
-
-# def loadDataSet():
-#     # Open the text file and read the dataSet
-#     with open('treino_sinais_vitais_com_label.txt', 'r') as file:
-#         dataSet = file.readlines()
-
-#     # Remove any leading or trailing white space and split the dataSet by commas
-#     dataSet = [line.strip().split(',') for line in dataSet]
-
-#     # Convert the dataSet to a NumPy array
-#     dataSet = np.array(dataSet, dtype=np.float64)
-
-#     print(dataSet)
-#     # Exclui a coluna index
-#     dataSet = np.delete(dataSet, 0, 1)
-
-#     # Exclui a coluna gravidade
-#     dataSet = np.delete(dataSet, 5, 1)
-
-
-#     # Extract the features (X) and target variable (y)
-#     targets = dataSet[:, -1]
-
-#     # Print the shape of the dataSet
-#     print('Data shape:', dataSet.shape)
-
-#     return dataSet, targets
 
 
 # Load dataset
@@ -67,5 +42,12 @@ cm = confusion_matrix(target_test, y_pred)
 
 print(cm)
 
+accuracy = tree.score(data_test, target_test)
+
 # Print accuracy score
-print("Accuracy:", tree.score(data_test, target_test))
+print("Accuracy:", accuracy)
+
+# Salvar resultado para futura comparacao
+file_object = open('results/resultsID3Class.txt', 'a')
+file_object.write(f'test_size: {TEST_SIZE}, accuracy: {accuracy}\n')
+file_object.close()
