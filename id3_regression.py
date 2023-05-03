@@ -1,5 +1,7 @@
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_error
 import pandas as pd
 
 TEST_SIZE = 0.3
@@ -36,8 +38,10 @@ y_pred = tree.predict(data_test)
 
 accuracy = tree.score(data_test, target_test)
 
-# Print accuracy score
-print("Accuracy:", accuracy)
+# Métricas de avaliação
+print("MSE:", mean_squared_error(target_test,y_pred))
+print('RMSE:', mean_squared_error(target_test,y_pred, squared=False))
+print("MAE:", mean_absolute_error(target_test,y_pred))
 
 # Salvar resultado para futura comparacao
 file_object = open('results/resultsID3Reg.txt', 'a')

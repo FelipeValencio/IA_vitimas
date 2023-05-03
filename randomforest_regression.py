@@ -1,5 +1,7 @@
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error
+from sklearn.metrics import mean_absolute_error
 import pandas as pd
 
 MAX_DEPTH = 10
@@ -38,8 +40,10 @@ y_pred = model.predict(data_test)
 
 accuracy = model.score(data_test, target_test)
 
-# Print accuracy score
-print("Accuracy:", accuracy)
+# Métricas de avaliação
+print("MSE:", mean_squared_error(target_test,y_pred))
+print('RMSE:', mean_squared_error(target_test,y_pred, squared=False))
+print("MAE:", mean_absolute_error(target_test,y_pred))
 
 # Salvar resultado para futura comparacao
 file_object = open('results/resultsRFReg.txt', 'a')
