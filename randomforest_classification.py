@@ -1,7 +1,8 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
 
 MAX_DEPTH = 10
 TEST_SIZE = 0.3
@@ -39,9 +40,9 @@ model.fit(data_train, target_train.values.ravel())
 # Predict on test set
 y_pred = model.predict(data_test)
 
-cm = confusion_matrix(target_test, y_pred)
-
-print(cm)
+plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred), display_labels= ['C1', 'C2', 'C3', 'C4'])
+plotcm.plot()
+plt.show()
 
 accuracy = model.score(data_test, target_test)
 

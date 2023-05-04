@@ -1,7 +1,9 @@
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 TEST_SIZE = 0.3
 
@@ -38,9 +40,9 @@ tree.fit(data_train, target_train)
 # Predict on test set
 y_pred = tree.predict(data_test)
 
-cm = confusion_matrix(target_test, y_pred)
-
-print(cm)
+plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred), display_labels= ['C1', 'C2', 'C3', 'C4'])
+plotcm.plot()
+plt.show()
 
 accuracy = tree.score(data_test, target_test)
 

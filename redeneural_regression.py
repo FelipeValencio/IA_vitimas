@@ -4,6 +4,7 @@ import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
@@ -47,3 +48,6 @@ model.fit(data_train, target_train, epochs=50, batch_size=16)
 loss = model.evaluate(data_test, target_test)
 
 print('Test loss:', loss)
+
+##predictions = model.predict(data_test, batch_size=128)
+
