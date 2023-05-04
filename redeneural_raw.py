@@ -1,6 +1,10 @@
 import numpy as np
 
 
+def sigmoid(z):
+    return 1.0 / (1.0 + np.exp(-z))
+
+
 class NeuralNetwork:
     def __init__(self, layers):
         self.layers = layers
@@ -8,14 +12,11 @@ class NeuralNetwork:
         self.weights = [np.random.randn(layers[i], layers[i - 1]) for i in range(1, self.num_layers)]
         self.biases = [np.random.randn(layers[i], 1) for i in range(1, self.num_layers)]
 
-    def sigmoid(self, z):
-        return 1.0 / (1.0 + np.exp(-z))
-
     def forward(self, x):
         a = x
         for i in range(self.num_layers - 1):
             z = np.dot(self.weights[i], a) + self.biases[i]
-            a = self.sigmoid(z)
+            a = sigmoid(z)
         return a
 
     def backward(self, x, y):
@@ -25,16 +26,16 @@ class NeuralNetwork:
         for i in range(self.num_layers - 1):
             z = np.dot(self.weights[i], a) + self.biases[i]
             zs.append(z)
-            a = self.sigmoid(z)
+            a = sigmoid(z)
             activations.append(a)
 
-        delta = (activations[-1] - y) * self.sigmoid(zs[-1]) * (1 - self.sigmoid(zs[-1]))
+        delta = (activations[-1] - y) * sigmoid(zs[-1]) * (1 - sigmoid(zs[-1]))
         grad_w = [np.dot(delta, activations[-2].T)]
         grad_b = [np.sum(delta, axis=1, keepdims=True)]
 
         for i in range(2, self.num_layers):
             z = zs[-i]
-            sp = self.sigmoid(z) * (1 - self.sigmoid(z))
+            sp = sigmoid(z) * (1 - sigmoid(z))
             delta = np.dot(self.weights[-i + 1].T, delta) * sp
             grad_w.append(np.dot(delta, activations[-i - 1].T))
             grad_b.append(np.sum(delta, axis=1, keepdims=True))

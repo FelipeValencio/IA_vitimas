@@ -1,2 +1,8 @@
 test_size: 0.3, accuracy: 0.9111111111111111
+<<<<<<< HEAD
 test_size: 0.3, accuracy: 0.8755555555555555
+=======
+test_size: 0.3, accuracy: 0.8933333333333333
+test_size: 0.3, accuracy: 0.8777777777777778
+test_size: 0.3, accuracy: 0.8911111111111111
+>>>>>>> adabdb86415f696ca2ec7ca8db5d0015c429757c
