@@ -1,5 +1,4 @@
 import os
-import numpy as np
 import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
@@ -11,7 +10,7 @@ TEST_SIZE = 0.3
 
 
 def loadData():
-    data = pd.read_csv('treino_sinais_vitais_com_label.txt', sep=',', header=None)
+    data = pd.read_csv('treino_sinais_vitais_sem_label.txt', sep=',', header=None)
 
     data.columns = ["index", "pSist", "pDiast", "qPA", "pulso", "respiração", "gravidade", "classificação"]
 
@@ -35,13 +34,20 @@ data_train, data_test, target_train, target_test = train_test_split(explicadores
 model = Sequential()
 # cada linha eh uma camada, o primeiro parametro eh a quantidade de nos
 model.add(Dense(10, input_dim=3, activation='relu'))
+model.add(Dense(10, input_dim=10, activation='relu'))
+model.add(Dense(10, input_dim=10, activation='relu'))
+model.add(Dense(10, input_dim=10, activation='relu'))
+model.add(Dense(10, input_dim=10, activation='relu'))
+model.add(Dense(10, input_dim=10, activation='relu'))
+model.add(Dense(10, input_dim=10, activation='relu'))
+model.add(Dense(10, input_dim=10, activation='relu'))
 model.add(Dense(1, activation='linear'))
 
 # Compile the model
 model.compile(loss='mean_squared_error', optimizer='adam')
 
 # Fit the model to the data
-model.fit(data_train, target_train, epochs=50, batch_size=16)
+model.fit(data_train, target_train, epochs=200)
 
 # Evaluate the model on some test data
 loss = model.evaluate(data_test, target_test)

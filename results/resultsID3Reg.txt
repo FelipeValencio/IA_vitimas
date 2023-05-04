@@ -1,1 +1,2 @@
 test_size: 0.3, accuracy: 0.9252278490827318
+test_size: 0.3, accuracy: 0.9340034367697687

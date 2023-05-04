@@ -16,3 +16,4 @@ max_depth: 10, test_size: 0.3, accuracy: 0.9682758509792656
 max_depth: 10, test_size: 0.3, accuracy: 0.9761389614742138
 max_depth: 10, test_size: 0.3, accuracy: 0.9705132234192942
 max_depth: 10, test_size: 0.3, accuracy: 0.96896421564327
+max_depth: 10, test_size: 0.3, accuracy: 0.9719328327438302

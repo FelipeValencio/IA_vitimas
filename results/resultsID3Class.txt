@@ -1,1 +1,4 @@
 test_size: 0.3, accuracy: 0.9111111111111111
+test_size: 0.3, accuracy: 0.8933333333333333
+test_size: 0.3, accuracy: 0.8777777777777778
+test_size: 0.3, accuracy: 0.8911111111111111
