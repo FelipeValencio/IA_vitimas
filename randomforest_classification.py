@@ -35,9 +35,9 @@ print(target)
 data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
 
 # Normalização de dados
-scaler  = StandardScaler()
+scaler = StandardScaler()
 N_data_train = scaler.fit_transform(data_train)
-N_data_test  = scaler.transform(data_test)
+N_data_test = scaler.transform(data_test)
 
 # Train the Decision Tree using ID3 algorithm
 model = RandomForestClassifier(max_depth=MAX_DEPTH, random_state=RANDOM_STATE)
@@ -46,7 +46,8 @@ model.fit(N_data_train, target_train.values.ravel())
 # Predict on test set
 y_pred = model.predict(N_data_test)
 
-plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred), display_labels= ['C1', 'C2', 'C3', 'C4'])
+plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred),
+                                display_labels=['C1', 'C2', 'C3', 'C4'])
 plotcm.plot()
 plt.show()
 

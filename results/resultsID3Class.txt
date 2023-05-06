@@ -6,3 +6,8 @@ test_size: 0.3, accuracy: 0.8933333333333333
 test_size: 0.3, accuracy: 0.8777777777777778
 test_size: 0.3, accuracy: 0.8911111111111111
 >>>>>>> adabdb86415f696ca2ec7ca8db5d0015c429757c
+test_size: 0.3, accuracy: 0.92
+test_size: 0.3, accuracy: 0.19111111111111112
+test_size: 0.3, accuracy: 0.19555555555555557
+test_size: 0.3, accuracy: 0.23333333333333334
+test_size: 0.3, accuracy: 0.33111111111111113

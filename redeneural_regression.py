@@ -42,9 +42,9 @@ model.add(Dense(512, activation=ACTV_FUNC))
 model.add(Dense(256, activation=ACTV_FUNC))
 model.add(Dense(128, activation=ACTV_FUNC))
 model.add(Dense(64, activation=ACTV_FUNC))
-model.add(Dense(32, activation=ACTV_FUNC))
-model.add(Dense(16, activation=ACTV_FUNC))
-model.add(Dense(8, activation=ACTV_FUNC))
+# model.add(Dense(32, activation=ACTV_FUNC))
+# model.add(Dense(16, activation=ACTV_FUNC))
+# model.add(Dense(8, activation=ACTV_FUNC))
 model.add(Dense(1, activation='linear'))
 
 # Compile the model
@@ -63,6 +63,6 @@ print('Test loss:', loss)
 # Salvar resultado para futura comparacao
 file_object = open('results/resultsRNReg.txt', 'a')
 file_object.write(f'epochs: {EPOCHS}, layers: {len(model.layers)}, '
-                 # f'LEARNING_RATE: {LEARNING_RATE}, '
+                  # f'LEARNING_RATE: {LEARNING_RATE}, '
                   f'test_size: {TEST_SIZE}, ACTV_FUNC: {ACTV_FUNC}, loss %: {loss}\n')
 file_object.close()

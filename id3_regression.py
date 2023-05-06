@@ -31,9 +31,9 @@ explicadores, target = loadData()
 data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
 
 # Normalização de dados
-scaler  = StandardScaler()
+scaler = StandardScaler()
 N_data_train = scaler.fit_transform(data_train)
-N_data_test  = scaler.transform(data_test)
+N_data_test = scaler.transform(data_test)
 
 # Train the Decision Tree using ID3 algorithm
 tree = DecisionTreeRegressor(random_state=42)
@@ -45,9 +45,9 @@ y_pred = tree.predict(N_data_test)
 accuracy = tree.score(data_test, target_test)
 
 # Métricas de avaliação
-print("MSE:", mean_squared_error(target_test,y_pred))
-print('RMSE:', mean_squared_error(target_test,y_pred, squared=False))
-print("MAE:", mean_absolute_error(target_test,y_pred))
+print("MSE:", mean_squared_error(target_test, y_pred))
+print('RMSE:', mean_squared_error(target_test, y_pred, squared=False))
+print("MAE:", mean_absolute_error(target_test, y_pred))
 
 # Salvar resultado para futura comparacao
 file_object = open('results/resultsID3Reg.txt', 'a')
