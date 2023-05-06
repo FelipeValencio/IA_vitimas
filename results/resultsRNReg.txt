@@ -1,0 +1,55 @@
+epochs: 100, layers: 7, test_size: 0.3, loss %: 14.300185203552246
+epochs: 100, layers: 7, test_size: 0.3, loss %: 10.89186954498291
+epochs: 100, layers: 7, test_size: 0.3, loss %: 11.28214168548584
+epochs: 100, layers: 7, test_size: 0.3, loss %: 14.124968528747559
+epochs: 100, layers: 7, test_size: 0.3, loss %: 10.816162109375
+epochs: 100, layers: 7, test_size: 0.3, loss %: 12.03402042388916
+epochs: 100, layers: 8, test_size: 0.3, loss %: 11.899203300476074
+epochs: 100, layers: 8, test_size: 0.2, loss %: 19.926912307739258
+epochs: 100, layers: 5, test_size: 0.3, loss %: 31.27108383178711
+epochs: 100, layers: 5, test_size: 0.3, loss %: 26.698152542114258
+epochs: 100, layers: 5, test_size: 0.3, loss %: 86.1705322265625
+epochs: 100, layers: 5, test_size: 0.3, loss %: 173.7385711669922
+epochs: 100, layers: 9, test_size: 0.3, loss %: 12.698848724365234
+epochs: 100, layers: 9, test_size: 0.3, loss %: 18.75189208984375
+epochs: 100, layers: 9, test_size: 0.3, loss %: 10.558930397033691
+epochs: 100, layers: 9, test_size: 0.3, loss %: 18.420745849609375
+epochs: 200, layers: 9, test_size: 0.3, loss %: 9.778175354003906
+epochs: 200, layers: 10, test_size: 0.3, loss %: 15.589932441711426
+epochs: 200, layers: 14, test_size: 0.3, loss %: 12.064547538757324
+epochs: 200, layers: 9, test_size: 0.3, loss %: 11.13580322265625 # Removido definicao explicita do input dim
+epochs: 200, layers: 9, test_size: 0.3, loss %: 10.430277824401855
+epochs: 200, layers: 9, test_size: 0.3, loss %: 15.491275787353516
+epochs: 200, layers: 9, test_size: 0.3, loss %: 7.560699462890625
+epochs: 200, layers: 9, test_size: 0.3, loss %: 12.295546531677246
+epochs: 200, layers: 9, test_size: 0.3, loss %: 10.610107421875
+epochs: 300, layers: 9, test_size: 0.3, loss %: 21.077098846435547
+epochs: 300, layers: 9, test_size: 0.3, loss %: 11.254793167114258
+epochs: 300, layers: 9, test_size: 0.3, loss %: 19.345956802368164
+epochs: 300, layers: 7, test_size: 0.3, loss %: 18.465028762817383
+epochs: 300, layers: 7, test_size: 0.3, loss %: 7.730853080749512
+epochs: 200, layers: 7, test_size: 0.3, loss %: 12.8930025100708
+epochs: 200, layers: 7, test_size: 0.3, loss %: 9.340401649475098
+epochs: 200, layers: 8, test_size: 0.3, loss %: 4.704122066497803
+epochs: 200, layers: 8, test_size: 0.3, loss %: 13.337177276611328
+epochs: 200, layers: 8, test_size: 0.3, loss %: 14.723512649536133
+epochs: 200, layers: 9, test_size: 0.3, loss %: 39.08700942993164
+epochs: 200, layers: 7, test_size: 0.3, loss %: 10.393723487854004
+epochs: 200, layers: 7, test_size: 0.3, loss %: 8.312906265258789
+epochs: 200, layers: 7, test_size: 0.3, loss %: 9.396860122680664
+epochs: 200, layers: 7, test_size: 0.3, loss %: 10.771958351135254
+epochs: 200, layers: 7, test_size: 0.3, loss %: 7.690739631652832
+epochs: 200, layers: 6, test_size: 0.3, loss %: 41.10618209838867
+epochs: 200, layers: 6, test_size: 0.3, loss %: 8.7504243850708
+epochs: 200, layers: 6, test_size: 0.3, loss %: 9.00870418548584
+epochs: 200, layers: 6, test_size: 0.3, loss %: 26.577810287475586
+epochs: 500, layers: 6, test_size: 0.3, loss %: 3.6623873710632324
+epochs: 500, layers: 6, test_size: 0.3, loss %: 20.600664138793945
+epochs: 500, layers: 6, test_size: 0.3, loss %: 4.720210075378418
+epochs: 500, layers: 6, test_size: 0.3, loss %: 9.19040584564209
+epochs: 500, layers: 9, test_size: 0.3, loss %: 4.970443248748779
+epochs: 500, layers: 9, test_size: 0.3, ACTV_FUNC: sigmoid, loss %: 261.96710205078125
+epochs: 500, layers: 9, test_size: 0.3, ACTV_FUNC: relu, loss %: 10.318257331848145
+epochs: 500, layers: 9, test_size: 0.3, ACTV_FUNC: relu, loss %: 5.7564473152160645
+epochs: 500, layers: 9, test_size: 0.3, ACTV_FUNC: relu, loss %: 5.133267879486084
+epochs: 1000, layers: 9, test_size: 0.3, ACTV_FUNC: relu, loss %: 3.982435703277588
