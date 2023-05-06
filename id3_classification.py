@@ -34,6 +34,9 @@ print(target)
 # Split dataset into training and testing sets
 data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=0.3)
 
+data_test = data_test.values
+data_train = data_train.values
+
 # Normalização de dados
 scaler  = StandardScaler()
 N_data_train = scaler.fit_transform(data_train)
