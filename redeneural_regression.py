@@ -38,6 +38,12 @@ data_train, data_test, target_train, target_test = train_test_split(explicadores
 model = Sequential()
 # cada linha eh uma camada, o primeiro parametro eh a quantidade de nos
 model.add(Dense(1024, activation=ACTV_FUNC))
+model.add(Dense(1024, activation=ACTV_FUNC))
+model.add(Dense(1024, activation=ACTV_FUNC))
+model.add(Dense(1024, activation=ACTV_FUNC))
+model.add(Dense(1024, activation=ACTV_FUNC))
+model.add(Dense(1024, activation=ACTV_FUNC))
+model.add(Dense(1024, activation=ACTV_FUNC))
 model.add(Dense(512, activation=ACTV_FUNC))
 model.add(Dense(256, activation=ACTV_FUNC))
 model.add(Dense(128, activation=ACTV_FUNC))

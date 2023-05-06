@@ -42,7 +42,7 @@ model.add(Dense(10, input_dim=10, activation='relu'))
 model.add(Dense(10, input_dim=10, activation='relu'))
 model.add(Dense(10, input_dim=10, activation='relu'))
 model.add(Dense(10, input_dim=10, activation='relu'))
-model.add(Dense(1, activation='linear'))
+model.add(Dense(4, activation='linear'))
 
 # Compile the model
 model.compile(loss='mean_squared_error', optimizer='adam')
