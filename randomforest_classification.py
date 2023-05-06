@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
 
-MAX_DEPTH = 10
+MAX_DEPTH = 5
 TEST_SIZE = 0.3
 RANDOM_STATE = 0
 

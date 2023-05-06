@@ -36,7 +36,7 @@ data_train = data_train.values
 # Normalização de dados
 scaler = StandardScaler()
 N_data_train = scaler.fit_transform(data_train)
-N_data_test  = scaler.transform(data_test)
+N_data_test = scaler.transform(data_test)
 print(N_data_train)
 print(N_data_test)
 
