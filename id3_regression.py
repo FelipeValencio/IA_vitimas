@@ -2,6 +2,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
+from sklearn.preprocessing import StandardScaler
 import pandas as pd
 
 TEST_SIZE = 0.3
@@ -29,12 +30,17 @@ explicadores, target = loadData()
 # Split dataset into training and testing sets
 data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
 
+# Normalização de dados
+scaler  = StandardScaler()
+N_data_train = scaler.fit_transform(data_train)
+N_data_test  = scaler.transform(data_test)
+
 # Train the Decision Tree using ID3 algorithm
-tree = DecisionTreeRegressor()
-tree.fit(data_train, target_train)
+tree = DecisionTreeRegressor(random_state=42)
+tree.fit(N_data_train, target_train)
 
 # Predict on test set
-y_pred = tree.predict(data_test)
+y_pred = tree.predict(N_data_test)
 
 accuracy = tree.score(data_test, target_test)
 

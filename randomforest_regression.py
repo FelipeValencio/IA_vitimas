@@ -2,6 +2,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
+from sklearn.preprocessing import StandardScaler
 import pandas as pd
 
 MAX_DEPTH = 10
@@ -29,14 +30,19 @@ def loadData():
 explicadores, target = loadData()
 
 # Split dataset into training and testing sets
-data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
+data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE, random_state=42)
+
+# Normalização de dados
+scaler  = StandardScaler()
+N_data_train = scaler.fit_transform(data_train)
+N_data_test  = scaler.transform(data_test)
 
 # Train the Decision Tree using ID3 algorithm
-model = RandomForestRegressor(max_depth=MAX_DEPTH, random_state=RANDOM_STATE)
-model.fit(data_train, target_train.values.ravel())
+model = RandomForestRegressor(max_depth=MAX_DEPTH, random_state=42)
+model.fit(N_data_train, target_train.values.ravel())
 
 # Predict on test set
-y_pred = model.predict(data_test)
+y_pred = model.predict(N_data_test)
 
 accuracy = model.score(data_test, target_test)
 
