@@ -37,8 +37,6 @@ data_train = data_train.values
 scaler = StandardScaler()
 N_data_train = scaler.fit_transform(data_train)
 N_data_test = scaler.transform(data_test)
-print(N_data_train)
-print(N_data_test)
 
 # Train the Decision Tree using ID3 algorithm
 tree = DecisionTreeRegressor(random_state=42)

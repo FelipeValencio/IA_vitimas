@@ -13,7 +13,7 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 TEST_SIZE = 0.3
 EPOCHS = 1000
-LEARNING_RATE = 0.01
+LEARNING_RATE = 0.03
 ACTV_FUNC = 'relu'
 OPTIMIZER = SGD(learning_rate=LEARNING_RATE)
 # OPTIMIZER='adam'
@@ -53,7 +53,8 @@ model.add(Dense(128, activation=ACTV_FUNC))
 model.add(Dense(256, activation=ACTV_FUNC))
 model.add(Dense(512, activation=ACTV_FUNC))
 model.add(Dense(1024, activation=ACTV_FUNC))
-model.add(Dense(2048, activation=ACTV_FUNC))
+# model.add(Dense(2048, activation=ACTV_FUNC))
+# model.add(Dense(4096, activation=ACTV_FUNC))
 model.add(Dense(4, activation='softmax'))
 
 # Compile the model
@@ -74,16 +75,16 @@ plotcm = ConfusionMatrixDisplay(
 
 plotcm.plot()
 
-print(classification_report(target_test, y_pred))
+class_report = classification_report(target_test, y_pred)
+
+print(class_report)
 
 # Salvar resultado para futura comparacao
 file_object = open('results/resultsRNClass.txt', 'a')
 file_object.write(f'epochs: {EPOCHS}, layers: {len(model.layers)}, '
-                   f'LEARNING_RATE: {LEARNING_RATE}, '
+                  f'LEARNING_RATE: {LEARNING_RATE}, '
                   f'test_size: {TEST_SIZE}, ACTV_FUNC: {ACTV_FUNC}\n')
+file_object.write(class_report + '\n')
 file_object.close()
 
 plt.show()
-
-# predictions = model.predict(data_test, batch_size=128)
-

@@ -11,6 +11,8 @@ TEST_SIZE = 0.3
 EPOCHS = 1000
 LEARNING_RATE = 0.01
 ACTV_FUNC = 'relu'
+OPTIMIZER = SGD(learning_rate=LEARNING_RATE)
+# OPTIMIZER='adam'
 
 
 def loadData():
@@ -37,19 +39,16 @@ data_train, data_test, target_train, target_test = train_test_split(explicadores
 # Define the model architecture
 model = Sequential()
 # cada linha eh uma camada, o primeiro parametro eh a quantidade de nos
-model.add(Dense(1024, activation=ACTV_FUNC))
-model.add(Dense(512, activation=ACTV_FUNC))
-model.add(Dense(256, activation=ACTV_FUNC))
-model.add(Dense(128, activation=ACTV_FUNC))
+model.add(Dense(10, input_dim=3, activation=ACTV_FUNC))
 model.add(Dense(64, activation=ACTV_FUNC))
-# model.add(Dense(32, activation=ACTV_FUNC))
-# model.add(Dense(16, activation=ACTV_FUNC))
-# model.add(Dense(8, activation=ACTV_FUNC))
+model.add(Dense(128, activation=ACTV_FUNC))
+model.add(Dense(256, activation=ACTV_FUNC))
+model.add(Dense(512, activation=ACTV_FUNC))
+model.add(Dense(1024, activation=ACTV_FUNC))
 model.add(Dense(1, activation='linear'))
 
 # Compile the model
-opt = SGD(learning_rate=LEARNING_RATE)
-model.compile(loss='mean_squared_error', optimizer='adam')
+model.compile(loss='mean_squared_error', optimizer=OPTIMIZER)
 
 # Fit the model to the data
 model.fit(data_train, target_train, epochs=EPOCHS)

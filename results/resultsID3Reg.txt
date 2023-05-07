@@ -11,3 +11,4 @@ test_size: 0.3, accuracy: 0.9437000889071658
 test_size: 0.3, accuracy: 0.9527810510702779
 test_size: 0.3, accuracy: -1.6974469926290099
 test_size: 0.3, accuracy: -2.077552241375734
+test_size: 0.3, accuracy: -2.1766314488393195
