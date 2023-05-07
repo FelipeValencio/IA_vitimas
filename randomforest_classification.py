@@ -49,6 +49,9 @@ model.fit(N_data_train, target_train.values.ravel())
 # Predict on test set
 y_pred = model.predict(N_data_test)
 
+print(y_pred[:10])
+print(target_test[:10])
+
 plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred),
                                 display_labels=['C1', 'C2', 'C3', 'C4'])
 plotcm.plot()

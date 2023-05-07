@@ -3,11 +3,20 @@ import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
+from keras.optimizers import SGD
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+import numpy as np
 
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 TEST_SIZE = 0.3
+EPOCHS = 1000
+LEARNING_RATE = 0.01
+ACTV_FUNC = 'relu'
+OPTIMIZER = SGD(learning_rate=LEARNING_RATE)
+# OPTIMIZER='adam'
 
 
 def loadData():
@@ -19,7 +28,7 @@ def loadData():
 
     explicadores = data[['qPA', 'pulso', 'respiração']]
 
-    target = data[['classificação']]
+    target = data[['classificação']] - 1
 
     print('Data shape:', data.shape)
 
@@ -31,29 +40,50 @@ explicadores, target = loadData()
 # Split dataset into training and testing sets
 data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
 
+scaler = StandardScaler().fit(data_train)
+N_data_train = scaler.transform(data_train)
+N_data_test = scaler.transform(data_test)
+
 # Define the model architecture
 model = Sequential()
 # cada linha eh uma camada, o primeiro parametro eh a quantidade de nos
-model.add(Dense(10, input_dim=3, activation='relu'))
-model.add(Dense(10, input_dim=10, activation='relu'))
-model.add(Dense(10, input_dim=10, activation='relu'))
-model.add(Dense(10, input_dim=10, activation='relu'))
-model.add(Dense(10, input_dim=10, activation='relu'))
-model.add(Dense(10, input_dim=10, activation='relu'))
-model.add(Dense(10, input_dim=10, activation='relu'))
-model.add(Dense(10, input_dim=10, activation='relu'))
-model.add(Dense(4, activation='linear'))
+model.add(Dense(10, input_dim=3, activation=ACTV_FUNC))
+model.add(Dense(64, activation=ACTV_FUNC))
+model.add(Dense(128, activation=ACTV_FUNC))
+model.add(Dense(256, activation=ACTV_FUNC))
+model.add(Dense(512, activation=ACTV_FUNC))
+model.add(Dense(1024, activation=ACTV_FUNC))
+model.add(Dense(2048, activation=ACTV_FUNC))
+model.add(Dense(4, activation='softmax'))
 
 # Compile the model
-model.compile(loss='mean_squared_error', optimizer='adam')
+model.compile(loss='sparse_categorical_crossentropy', optimizer=OPTIMIZER, metrics=['accuracy'])
 
 # Fit the model to the data
-model.fit(data_train, target_train, epochs=200)
+model.fit(N_data_train, target_train, epochs=EPOCHS)
 
 # Evaluate the model on some test data
-loss = model.evaluate(data_test, target_test)
+y_pred = model.predict(N_data_test)
 
-print('Test loss:', loss)
+y_pred = np.argmax(y_pred, axis=-1)
 
-##predictions = model.predict(data_test, batch_size=128)
+plotcm = ConfusionMatrixDisplay(
+    confusion_matrix=confusion_matrix(target_test, y_pred),
+    display_labels=['C1', 'C2', 'C3', 'C4']
+)
+
+plotcm.plot()
+
+print(classification_report(target_test, y_pred))
+
+# Salvar resultado para futura comparacao
+file_object = open('results/resultsRNClass.txt', 'a')
+file_object.write(f'epochs: {EPOCHS}, layers: {len(model.layers)}, '
+                   f'LEARNING_RATE: {LEARNING_RATE}, '
+                  f'test_size: {TEST_SIZE}, ACTV_FUNC: {ACTV_FUNC}\n')
+file_object.close()
+
+plt.show()
+
+# predictions = model.predict(data_test, batch_size=128)
 

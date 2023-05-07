@@ -68,3 +68,5 @@ epochs: 2000, layers: 6, test_size: 0.3, ACTV_FUNC: relu, loss %: 4.740175724029
 epochs: 2000, layers: 6, test_size: 0.3, ACTV_FUNC: relu, loss %: 2.460843086242676
 epochs: 2000, layers: 6, test_size: 0.3, ACTV_FUNC: relu, loss %: 5.427269458770752
 epochs: 2000, layers: 6, test_size: 0.3, ACTV_FUNC: relu, loss %: 6.122414588928223
+epochs: 100, layers: 6, test_size: 0.3, ACTV_FUNC: relu, loss %: 0.12441470474004745
+epochs: 1000, layers: 6, test_size: 0.3, ACTV_FUNC: relu, loss %: 4.324779033660889

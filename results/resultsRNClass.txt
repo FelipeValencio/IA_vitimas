@@ -1,0 +1,18 @@
+epochs: 10, layers: 2, test_size: 0.3, ACTV_FUNC: relu
+epochs: 10, layers: 2, test_size: 0.3, ACTV_FUNC: relu
+epochs: 1000, layers: 2, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 2, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 2, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 2, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 2, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 5, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 5, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 8, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 8, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 8, test_size: 0.3, ACTV_FUNC: relu
+epochs: 100, layers: 8, test_size: 0.3, ACTV_FUNC: relu
+epochs: 1000, layers: 8, test_size: 0.3, ACTV_FUNC: relu
+epochs: 1000, layers: 8, test_size: 0.3, ACTV_FUNC: relu
+epochs: 1000, layers: 8, test_size: 0.3, ACTV_FUNC: relu
+epochs: 1000, layers: 8, LEARNING_RATE: 0.01, test_size: 0.3, ACTV_FUNC: relu
+epochs: 1000, layers: 8, LEARNING_RATE: 0.01, test_size: 0.3, ACTV_FUNC: relu

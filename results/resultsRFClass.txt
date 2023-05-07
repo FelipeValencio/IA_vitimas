@@ -26,3 +26,9 @@ max_depth: 10, test_size: 0.3, accuracy: 0.9133333333333333
 max_depth: 10, test_size: 0.3, accuracy: 0.9155555555555556
 max_depth: 10, test_size: 0.3, accuracy: 0.9133333333333333max_depth: 10, test_size: 0.3, accuracy: 0.32
 max_depth: 5, test_size: 0.3, accuracy: 0.33555555555555555
+max_depth: 5, test_size: 0.3, accuracy: 0.3111111111111111
+max_depth: 5, test_size: 0.3, accuracy: 0.3422222222222222
+max_depth: 5, test_size: 0.3, accuracy: 0.33555555555555555
+max_depth: 5, test_size: 0.3, accuracy: 0.34444444444444444
+max_depth: 5, test_size: 0.3, accuracy: 0.35333333333333333
+max_depth: 5, test_size: 0.3, accuracy: 0.3511111111111111
