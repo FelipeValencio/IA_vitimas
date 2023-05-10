@@ -12,11 +12,11 @@ import numpy as np
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
 TEST_SIZE = 0.3
-EPOCHS = 1000
+EPOCHS = 200
 LEARNING_RATE = 0.03
 ACTV_FUNC = 'relu'
-OPTIMIZER = SGD(learning_rate=LEARNING_RATE)
-# OPTIMIZER='adam'
+# OPTIMIZER = SGD(learning_rate=LEARNING_RATE)
+OPTIMIZER = 'adam'
 
 
 def loadData():
@@ -47,14 +47,10 @@ N_data_test = scaler.transform(data_test)
 # Define the model architecture
 model = Sequential()
 # cada linha eh uma camada, o primeiro parametro eh a quantidade de nos
-model.add(Dense(10, input_dim=3, activation=ACTV_FUNC))
-model.add(Dense(64, activation=ACTV_FUNC))
-model.add(Dense(128, activation=ACTV_FUNC))
-model.add(Dense(256, activation=ACTV_FUNC))
-model.add(Dense(512, activation=ACTV_FUNC))
-model.add(Dense(1024, activation=ACTV_FUNC))
-# model.add(Dense(2048, activation=ACTV_FUNC))
-# model.add(Dense(4096, activation=ACTV_FUNC))
+model.add(Dense(32, input_dim=3, activation=ACTV_FUNC))
+model.add(Dense(50, activation=ACTV_FUNC))
+model.add(Dense(50, activation=ACTV_FUNC))
+model.add(Dense(50, activation=ACTV_FUNC))
 model.add(Dense(4, activation='softmax'))
 
 # Compile the model

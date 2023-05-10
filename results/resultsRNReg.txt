@@ -75,3 +75,20 @@ epochs: 1000, layers: 7, test_size: 0.3, ACTV_FUNC: relu, loss %: 5.421450138092
 epochs: 1000, layers: 7, test_size: 0.3, ACTV_FUNC: relu, loss %: 5.092352390289307
 epochs: 500, layers: 7, test_size: 0.3, ACTV_FUNC: relu, loss %: 8.301599502563477
 epochs: 1000, layers: 7, test_size: 0.3, ACTV_FUNC: relu, loss %: 4.884923458099365
+epochs: 200, layers: 6, test_size: 0.3, ACTV_FUNC: relu, loss %: 33.63185501098633
+epochs: 200, layers: 6, test_size: 0.3, ACTV_FUNC: relu, loss %: 14.129632949829102
+epochs: 200, layers: 9, test_size: 0.3, ACTV_FUNC: relu, loss %: 16.53276824951172
+epochs: 200, layers: 9, test_size: 0.3, ACTV_FUNC: relu, loss %: 19.087995529174805
+epochs: 200, layers: 9, test_size: 0.3, ACTV_FUNC: relu, MSE %: 10.192596355923644, RMSE %: 3.192584588687298, MAE %: 2.3879491060514324,
+epochs: 200, layers: 8, test_size: 0.3, ACTV_FUNC: relu, MSE %: 21.0636256086853, RMSE %: 4.589512567657408, MAE %: 3.5237068569592287,
+epochs: 200, layers: 8, test_size: 0.3, ACTV_FUNC: relu, MSE %: 12.749634893014989, RMSE %: 3.570663088701451, MAE %: 2.4569046952720814,
+epochs: 200, layers: 7, test_size: 0.3, ACTV_FUNC: relu, MSE %: 7.919827214879229, RMSE %: 2.814218757467022, MAE %: 2.0127000660332572,
+epochs: 200, layers: 6, test_size: 0.3, ACTV_FUNC: relu, MSE %: 9.813612087369426, RMSE %: 3.1326685249750614, MAE %: 2.2656233595345054,
+epochs: 200, layers: 5, test_size: 0.3, ACTV_FUNC: relu, MSE %: 11.027878386657795, RMSE %: 3.320824955738829, MAE %: 2.380391501018066,
+epochs: 200, layers: 4, test_size: 0.3, ACTV_FUNC: relu, MSE %: 26.135924732300776, RMSE %: 5.112330655611077, MAE %: 3.921039759281142,
+epochs: 200, layers: 4, test_size: 0.3, ACTV_FUNC: relu, MSE %: 23.578579103759516, RMSE %: 4.855777909229325, MAE %: 3.6042062227758787,
+epochs: 200, layers: 5, test_size: 0.3, ACTV_FUNC: relu, MSE %: 14.771192761114396, RMSE %: 3.843330946082369, MAE %: 2.764145983978814,
+epochs: 200, layers: 5, test_size: 0.3, ACTV_FUNC: relu, MSE %: 17.471544580683823, RMSE %: 4.17989767586287, MAE %: 3.083200918322618,
+epochs: 200, layers: 5, test_size: 0.3, ACTV_FUNC: relu, MSE %: 14.905728986856559, RMSE %: 3.8607938285871417, MAE %: 2.821886489688246,
+epochs: 200, layers: 5, test_size: 0.3, ACTV_FUNC: relu, MSE %: 26.042892039198644, RMSE %: 5.103223690883895, MAE %: 4.006475578049588,
+epochs: 200, layers: 5, test_size: 0.3, ACTV_FUNC: relu, MSE %: 14.47919929495064, RMSE %: 3.805154306325913, MAE %: 2.9408773572295464,
