@@ -1,14 +1,11 @@
 import os
 import pandas as pd
-import predictions as predictions
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.optimizers import SGD
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
-from keras.utils.vis_utils import plot_model
-import matplotlib.pyplot as plt
 
 os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
@@ -74,9 +71,3 @@ file_object.write(f'epochs: {EPOCHS}, layers: {len(model.layers)}, '
                   # f'LEARNING_RATE: {LEARNING_RATE}, '
                   f'test_size: {TEST_SIZE}, ACTV_FUNC: {ACTV_FUNC}, MSE %: {MSE}, RMSE %: {RMSE}, MAE %: {MAE},\n')
 file_object.close()
-
-# Plot the predictions along with to the test data
-plt.scatter(target_test, predictions)
-plt.xlabel('True Values')
-plt.ylabel('Predictions')
-plt.show()

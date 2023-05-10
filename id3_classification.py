@@ -1,7 +1,6 @@
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, classification_report, ConfusionMatrixDisplay
-from sklearn.preprocessing import StandardScaler
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -27,42 +26,34 @@ def loadData():
 
     return explicadores, target
 
-for i in range(0, 100):
-    # Load dataset
-    explicadores, target = loadData()
 
-    # Split dataset into training and testing sets
-    data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
+# Load dataset
+explicadores, target = loadData()
 
-    data_test = data_test.values
-    data_train = data_train.values
+# Split dataset into training and testing sets
+data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
 
-    # Normalização de dados
-    scaler = StandardScaler()
-    N_data_train = scaler.fit_transform(data_train)
-    N_data_test = scaler.transform(data_test)
+# Train the Decision Tree using ID3 algorithm
+tree = DecisionTreeClassifier(criterion="entropy", max_depth=MAX_DEPTH,
+                              min_samples_split=MIN_SAMPLES_SPLIT,
+                              min_samples_leaf=MIN_SAMPLES_LEAF, max_features=MAX_FEATURES)
+tree.fit(data_train, target_train)
 
-    # Train the Decision Tree using ID3 algorithm
-    tree = DecisionTreeClassifier(criterion="entropy", max_depth=MAX_DEPTH,
-                                  min_samples_split=MIN_SAMPLES_SPLIT,
-                                  min_samples_leaf=MIN_SAMPLES_LEAF, max_features=MAX_FEATURES)
-    tree.fit(N_data_train, target_train)
+# Predict on test set
+y_pred = tree.predict(data_test)
 
-    # Predict on test set
-    y_pred = tree.predict(N_data_test)
+plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred),
+                                display_labels=['C1', 'C2', 'C3', 'C4'])
+plotcm.plot()
+plt.show()
 
-    plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred),
-                                    display_labels=['C1', 'C2', 'C3', 'C4'])
-    plotcm.plot()
-    plt.show()
+accuracy = tree.score(data_test, target_test)
 
-    accuracy = tree.score(data_test, target_test)
+print(classification_report(target_test, y_pred, ))
 
-    print(classification_report(target_test, y_pred, ))
+result_data = classification_report(target_test, y_pred, output_dict=True)
 
-    result_data = classification_report(target_test, y_pred, output_dict=True)
-
-    # Salvar resultado para futura comparacao
-    file_object = open('results/resultsID3Class.txt', 'a')
-    file_object.write(f'{result_data["accuracy"]}\n')
-    file_object.close()
+# Salvar resultado para futura comparacao
+file_object = open('results/resultsID3Class.txt', 'a')
+file_object.write(f'{result_data["accuracy"]}\n')
+file_object.close()

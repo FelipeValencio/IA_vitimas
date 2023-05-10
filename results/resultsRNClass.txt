@@ -293,3 +293,27 @@ epochs: 200, layers: 4, LEARNING_RATE: 0.03, test_size: 0.3, ACTV_FUNC: relu
    macro avg       0.59      0.53      0.54       450
 weighted avg       0.75      0.74      0.74       450
 
+epochs: 200, layers: 5, LEARNING_RATE: 0.03, test_size: 0.3, ACTV_FUNC: relu
+              precision    recall  f1-score   support
+
+           0       0.84      0.78      0.81        74
+           1       0.85      0.86      0.85       262
+           2       0.74      0.74      0.74       105
+           3       0.90      1.00      0.95         9
+
+    accuracy                           0.82       450
+   macro avg       0.83      0.85      0.84       450
+weighted avg       0.82      0.82      0.82       450
+
+epochs: 200, layers: 5, LEARNING_RATE: 0.03, test_size: 0.3, ACTV_FUNC: relu
+              precision    recall  f1-score   support
+
+           0       0.85      0.95      0.90        73
+           1       0.95      0.91      0.93       243
+           2       0.90      0.93      0.92       128
+           3       0.80      0.67      0.73         6
+
+    accuracy                           0.92       450
+   macro avg       0.88      0.86      0.87       450
+weighted avg       0.92      0.92      0.92       450
+

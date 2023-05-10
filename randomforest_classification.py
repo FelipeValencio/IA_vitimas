@@ -25,43 +25,31 @@ def loadData():
 
     return explicadores, target
 
-for i in range(0, 100):
-    explicadores, target = loadData()
+explicadores, target = loadData()
 
-    print(explicadores)
-    print(target)
+# Split dataset into training and testing sets
+data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
 
-    # Split dataset into training and testing sets
-    data_train, data_test, target_train, target_test = train_test_split(explicadores, target, test_size=TEST_SIZE)
+# Train the Decision Tree using ID3 algorithm
+model = RandomForestClassifier(n_estimators=NUM_TREES, max_depth=MAX_DEPTH, random_state=42)
+model.fit(N_data_train, target_train.values.ravel())
 
-    data_train = data_train.values
-    data_test = data_test.values
+# Predict on test set
+y_pred = model.predict(N_data_test)
 
-    # Normalização de dados
-    scaler = StandardScaler()
-    N_data_train = scaler.fit_transform(data_train)
-    N_data_test = scaler.transform(data_test)
+print(y_pred[:10])
+print(target_test[:10])
 
-    # Train the Decision Tree using ID3 algorithm
-    model = RandomForestClassifier(n_estimators=NUM_TREES, max_depth=MAX_DEPTH, random_state=42)
-    model.fit(N_data_train, target_train.values.ravel())
+plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred),
+                                display_labels=['C1', 'C2', 'C3', 'C4'])
+plotcm.plot()
+plt.show()
 
-    # Predict on test set
-    y_pred = model.predict(N_data_test)
+print(classification_report(target_test, y_pred, ))
 
-    print(y_pred[:10])
-    print(target_test[:10])
+result_data = classification_report(target_test, y_pred, output_dict=True)
 
-    plotcm = ConfusionMatrixDisplay(confusion_matrix=confusion_matrix(target_test, y_pred),
-                                    display_labels=['C1', 'C2', 'C3', 'C4'])
-    plotcm.plot()
-    plt.show()
-
-    print(classification_report(target_test, y_pred, ))
-
-    result_data = classification_report(target_test, y_pred, output_dict=True)
-
-    # Salvar resultado para futura comparacao
-    file_object = open('results/resultsRFClass.txt', 'a')
-    file_object.write(f'{result_data["accuracy"]}\n')
-    file_object.close()
+# Salvar resultado para futura comparacao
+file_object = open('results/resultsRFClass.txt', 'a')
+file_object.write(f'{result_data["accuracy"]}\n')
+file_object.close()
