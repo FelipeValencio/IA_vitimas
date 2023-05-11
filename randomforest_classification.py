@@ -32,10 +32,10 @@ data_train, data_test, target_train, target_test = train_test_split(explicadores
 
 # Train the Decision Tree using ID3 algorithm
 model = RandomForestClassifier(n_estimators=NUM_TREES, max_depth=MAX_DEPTH, random_state=42)
-model.fit(N_data_train, target_train.values.ravel())
+model.fit(data_train, target_train.values.ravel())
 
 # Predict on test set
-y_pred = model.predict(N_data_test)
+y_pred = model.predict(data_test)
 
 print(y_pred[:10])
 print(target_test[:10])

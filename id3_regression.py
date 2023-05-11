@@ -2,7 +2,6 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
-from sklearn.preprocessing import StandardScaler
 import pandas as pd
 
 TEST_SIZE = 0.3
